@@ -24,17 +24,17 @@ Params => envia os dados pela url /prod/651981951519419
 Query => envia dados para url, mas com formatação chave e valor /prod?id=4851161name=Luiz
 */
 
-
+//Pagina inicial do servidor
 app.get('/', (req,res) =>{
     res.send('Servidor Iniciado')
 })
 
-
+//Buscando todos os dados
 app.get('/prod', (req,res) =>{
     return res.json(products)
 })
 
-
+//Inserindo dados
 app.post('/prod', (req,res) =>{
 
     const { name, price } = req.body;
@@ -49,12 +49,13 @@ app.post('/prod', (req,res) =>{
     return res.json(prod)
 })
 
+//Buscando dados pelo id
 app.get('/prod/:id', (req,res) =>{
     const { id } = req.params
     res.json(products.find((item)=> item.id === id))
 })
 
-
+//Alterando dados a partir de seu id
 app.put('/prod/:id', (req,res)=>{
     const { id } = req.params
     const { name, price } = req.body;
@@ -71,6 +72,7 @@ app.put('/prod/:id', (req,res)=>{
     })
 })
 
+//Deletando dados a partir do seu id
 app.delete('/prod/:id', (req,res)=>{
     const { id } = req.params
     const itemIndex = products.findIndex((item)=> item.id === id)
@@ -81,7 +83,5 @@ app.delete('/prod/:id', (req,res)=>{
     })
 })
 
-
-
-
+//Iniciando servidor
 app.listen(3002, () => console.log("Servidor rodando, porta 3002"))
