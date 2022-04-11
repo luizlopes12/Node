@@ -1,9 +1,11 @@
 const express = require('express')
 
+//Função para criar um id de usuario
 const { randomUUID } = require("crypto")
 
 const app = express()
 
+//Habilitando o uso de dados em json
 app.use(express.json())
 
 const products = []
@@ -21,6 +23,7 @@ Body => envia dados para a aplicação
 Params => envia os dados pela url /prod/651981951519419
 Query => envia dados para url, mas com formatação chave e valor /prod?id=4851161name=Luiz
 */
+
 
 app.get('/', (req,res) =>{
     res.send('Servidor Iniciado')
