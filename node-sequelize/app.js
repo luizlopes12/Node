@@ -1,11 +1,11 @@
 const express = require('express')
 const app = express()
-const handlebars = require('express-handlebars')
+const { engine } = require ('express-handlebars');
 const Sequelize = require('sequelize')
 
 //Config
     // Template engine
-    app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+    app.engine('handlebars', engine({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
     //Conexão com o banco de dados mysql
     const sequelize = new Sequelize('testes_node', 'root', 'admin', {
