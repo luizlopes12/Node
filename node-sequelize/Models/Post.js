@@ -9,6 +9,9 @@ const Post = db.sequelize.define('posts', {
     }
 })
 
+module.exports = {
+    Post
+}
 
 // Sempre comentar ou apagar a linha de criação depois de criar a tabela
 // Post.sync({force: true})
