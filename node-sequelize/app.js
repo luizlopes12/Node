@@ -25,7 +25,10 @@ app.listen(8080, () => {
   console.log("Servidor rodando na porta 8080");
 });
 app.get("/", (req, res) => {
-  Post.findAll()
+  //Requisição de todos os dados do banco
+  Post.findAll({
+    order: [['id', 'DESC']]
+  })
     .then((posts) => {
       res.render("home", { posts });
     })
@@ -48,3 +51,18 @@ app.post("/add", (req, res) => {
       res.send(`Houve um erro: ${err}`);
     });
 });
+
+
+
+app.get('/deletar/:id', (req,res)=>{
+  //Fazendo o delete  pelo id
+  Post.destroy({
+    where: {
+      'id': req.params.id,
+    }
+  }).then(()=>{
+    res.send('deletado com sucesso')
+  }).catch((err)=>{
+    res.send('Algo de errado aconteceu')
+  })
+})
