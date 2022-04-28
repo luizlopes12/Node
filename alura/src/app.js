@@ -1,4 +1,5 @@
 import express from "express";
+import routes from "./Routes/index.js";
 //importando a classe de conexão
 import db from './config/database.js'
 //importando a tabela livros do banco de dados
@@ -13,17 +14,8 @@ db.once('open', () =>{
 
 
 const app = express()
-app.get('/', (req, res)=>{
-    res.json({
-        "message": "Bom dia"
-    })
-})
+app.use(express.json())
 
-app.get('/livros', (req, res)=>{
-    //fazendo um select all na tabela de livros
-    livros.find((err, livros) =>{
-        res.status(200).json(livros)
-    })
+routes(app)
 
-})
 export default app;
