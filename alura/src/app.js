@@ -15,7 +15,9 @@ db.once('open', () =>{
 
 const app = express()
 app.use(express.json())
-
+app.listen(3000, ()=>{
+    console.log('uepa')
+})
 routes(app)
 
 export default app;

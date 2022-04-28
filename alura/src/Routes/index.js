@@ -1,5 +1,5 @@
 import express from "express";
-import livros from './livrosRoutes';
+import livros from './livrosRoutes.js';
 
 
 
