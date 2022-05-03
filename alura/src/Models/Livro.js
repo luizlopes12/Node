@@ -8,7 +8,7 @@ const livroSchema = new mongoose.Schema({
             type: String, required: true
     },
     autor: {
-        type: String, required: true
+        type: mongoose.Schema.Types.ObjectId, ref: 'autores',  required: true
     },
     editora: {
         type: String, required: true
