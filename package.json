@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/luizlopes12/Node#readme",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.18.1",
     "express-handlebars": "^6.0.5",
     "nodemon": "^2.0.15",
     "sequelize": "^6.19.0"
